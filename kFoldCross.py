@@ -51,7 +51,8 @@ def kFoldCross(k, algorithm, data, random_seed = None):
         test.append(data[i*_i:])
 
         #train on data
-
+        knn = classifier.fit(X[train],y[train])
+        error = knn.score(X[test], y[test])
 
         #test error
         errors[i] = error

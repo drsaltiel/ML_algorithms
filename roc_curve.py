@@ -6,6 +6,7 @@ from sklearn.cross_validation import train_test_split
 def plot_roc_curve(model, features, target):
     '''
     plots roc curve
+    works for sklearn style models with model().fit method and a .predict_proba attribute
     '''
     target_test, target_predicted_proba = split_predict(model, features, target)
 
@@ -33,6 +34,6 @@ def split_predict(model, features, target):
         features, 
         target, 
         train_size=0.5)
-    model = model.fit(train_feat, train_target)
-    target_predicted_proba = model_lr.predict_proba(test_feat)
+    model_f = model.fit(train_feat, train_target)
+    target_predicted_proba = model_f.predict_proba(test_feat)
     return test_target, target_predicted_proba

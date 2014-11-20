@@ -1,10 +1,14 @@
 from sklearn.metrics import roc_curve
 from sklearn.metrics import auc
+from matplotlib import pyplot as plt
+from sklearn.cross_validation import train_test_split
 
-def plot_roc_curve(target_test, target_predicted_proba):
+def plot_roc_curve(model, features, target):
     '''
     plots roc curve
     '''
+    target_test, target_predicted_proba = split_predict(model, features, target)
+
     fpr, tpr, thresholds = roc_curve(target_test, target_predicted_proba[:, 1
                                                                          ])
     roc_auc = auc(fpr, tpr)
@@ -18,3 +22,17 @@ def plot_roc_curve(target_test, target_predicted_proba):
     plt.ylabel('True Positive Rate or (Sensitivity)')
     plt.title('Receiver Operating Characteristic')
     plt.legend(loc="lower right")
+    plt.show()
+
+def split_predict(model, features, target):
+    '''
+    splits data and predicts on test 
+    returns: target, target predicted probability
+    '''
+    train_feat, test_feat, train_target, test_target = train_test_split(
+        features, 
+        target, 
+        train_size=0.5)
+    model = model.fit(train_feat, train_target)
+    target_predicted_proba = model_lr.predict_proba(test_feat)
+    return test_target, target_predicted_proba

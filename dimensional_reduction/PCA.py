@@ -11,3 +11,17 @@ each variable - the ratio of the eigenvector for one component against
 the sum of all the eigenvectors, is present. 
 '''
 
+import numpy as np
+
+def pca(data, n_components):
+	'''
+	inputs:
+	data - a list or a numpy array
+	n_components: number of components to return 
+	'''
+	if type(data) = numpy.ndarray:
+		continue
+	else: 
+
+	cov_mat = np.cov(data)
+	eig_vals, eig_vecs = np.linalg.eig(cov_mat)

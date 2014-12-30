@@ -6,7 +6,7 @@ the test point the most common classification of these neighbors.
 Only makes sense to use if all your distances are normalized.
 '''
 
-def fRN(radius
+def fRN(radius,
     train_data_X, 
     train_data_y,
     test_point,

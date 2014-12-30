@@ -32,7 +32,7 @@ def fRN(radius,
 
     
 
-def kNN2(k = int, 
+def kNN2(k, 
     train_data_X, 
     train_data_y,
     test_point,

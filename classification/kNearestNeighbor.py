@@ -53,7 +53,7 @@ def kNN1(k = int,
         if nNeighbors > greatest_nNeighbors:
             nearest_neighbors_classifier = [classifier]
             greatest_nNeighbors = nNeighbors
-        else if nNeighbors == greatest_nNeighbors:
+        elif _nNeighbors == greatest_nNeighbors:
             nearest_neighbors_classifier.append(classifier)
     random.seed(random_seed)
     NN = nearest_neighbors_classifier[random.randrange(len(nearest_neighbors_classifier))]
